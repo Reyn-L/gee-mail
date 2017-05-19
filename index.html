@@ -1,18 +1,155 @@
-<html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+<!DOCTYPE html>
+<html>     
+<head>         
+<script src="js/mail-generator.js"></script>
+<link href="css/style.css" rel="stylesheet" media="screen">   
+ <script>      
+ window.onload = function(){
+
+       // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser 
+
+// counting messages //
+var eInbox= document.getElementsByClassName("Inbox")[0];
+var messageCount=0;
+  var inboxCounter = document.createElement("inbox");
+      eInbox.appendChild(inboxCounter);
+
+// First email //            
+ console.log(window.geemails)         
+    for(var i = 0; i<window.geemails.length; i++) { 
+      messageCount +=1;
+
+    console.log(geemails[i].subject)
+
+    var subject = document.createElement('div');
+      subject.className = 'eSubject';
+      subject.innerHTML = 'Subject:  ' + geemails[i].subject
+
+      main.appendChild(subject);
+
+    var sender = document.createElement('div');
+      sender.className = 'eSender';
+      sender.innerHTML = 'Sender:  ' + geemails[i].sender
+      
+      main.appendChild(sender);
+
+    var date = document.createElement('div');
+      date.className = 'eDate';
+      date.innerHTML = 'Date:  ' + geemails[i].date
+      
+      main.appendChild(date);
+
+    var body = document.createElement('p');
+      body.className = 'eBody';
+      body.innerHTML = 'Body:  ' + geemails[i].body
+      
+      sender.appendChild(body);
+
+    var dividing = document.createElement("img");
+        dividing.className = "dividing";
+        dividing.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
+
+        main.appendChild(dividing); 
+
+        inboxCounter.innerHTML = ": " + messageCount ;
+
+
+    // onclick toggle //
+var clickMe = document.getElementsByClassName("eSender");
+for(var j = 0; j<clickMe.length; j++){
+  clickMe[j].addEventListener("click", showMess);
+};
+
+function showMess(){
+  var showOrHide = this.querySelectorAll(".eBody")[0];
+  if(showOrHide.style.display === "none"){
+    showOrHide.style.display = "block";
+  }else{
+    showOrHide.style.display = "none";
+  }
+  }      
+   }
+
+//set interval//
+setInterval(LoadMoreMessages, 5000);
+
+// loading new mail //
+function LoadMoreMessages(){
+    messageCount +=1;
+var newMail = getNewMessage();
+
+    console.log('newMail',newMail);
+
+    var subject = document.createElement("div");
+                subject.className = "eSubject";
+                subject.innerHTML = "Subject:" + " " + newMail.subject;
+                main.appendChild(subject);
+                    
+        var sender = document.createElement("div");
+              sender.className = "eSender";
+                sender.innerHTML = "Sender:" + " " + newMail.sender;
+                main.appendChild(sender);
+                
+        var date = document.createElement("div");
+              date.className = "eDate";
+                date.innerHTML = "Date:" + " " + newMail.date;
+                main.appendChild(date);
+  
+    var body= document.createElement("p");
+            body.className ="eBody";
+            body.innerHTML = "Body:" + " " + newMail.body;
+        sender.appendChild(body);
+          
+    var dividing = document.createElement("img");
+                dividing.className = "dividing";
+                dividing.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
+                main.appendChild(dividing);
+
+// toggle repeating emails//
         
-      };
-    </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+var clickMe2 = document.getElementsByClassName("eSender");
+  for(var i = 0; i<clickMe2.length; i++){
+    clickMe2[i].addEventListener("click", shownewMess);
+}
+function shownewMess(){
+  var showOrHide2 = this.querySelectorAll(".eBody")[0];
+  if(showOrHide2.style.display === "none"){
+    showOrHide2.style.display  = "block";
+  }else{
+    showOrHide2.style.display = "none";
+  }
+}
+        inboxCounter.innerHTML = ": " + messageCount ;
+  }
+};
+
+
+ </script>     
+ </head>     
+<body> 
+<div>
+<h1 class='please'>Welcome To Gee-Mail!</h1> 
+</div>
+
+<p class="name">Created By Reyn Leong</p> 
+
+<ul class="bullet">
+  <div class= "nav">
+    
+  <p class='size'> <a href="#"> Compose</a> </p>
+  <li> <img class="image" src="https://cdn4.iconfinder.com/data/icons/REALVISTA/mail_icons/png/400/inbox.png"> <a class='Inbox' href="#">Inbox</a> </li>    
+  <li> <img class="image" src="https://cdn0.iconfinder.com/data/icons/ui-colorful-beast-1/32/UI-50-256.png"> <a href="#">Starred</a> </li>
+  <li> <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVOI4Lkx8CET3Hclx-c3zCuXNyVl1G-1PMRquhZn1bnloRNVFs"> <a href="#">Sent</a> </li>
+  <li> <img class="image" src="http://www.makir.bg/Write%20Email.png">  <a href="#">Drafts</a> </li> 
+  <li> <img class="image" src="https://img.clipartfest.com/b2ed99df59eff9e7f4a2e20ce2fedef0_download-no-email-clipart-free-spam-mail-clipart_1300-1300.jpeg"> <a href="#">Spam</a> </li>
+  <li> <img class="image" src="https://cdn4.iconfinder.com/data/icons/SUPERVISTA/mail_icons/png/400/trash_mail.png"> <a href="#">Trash</a> </li>
+  <li> </li>
+</ul>
+  </div>
+
+<div class="container" id="main">          
+
+         
+</div>     
+</body> 
 </html>

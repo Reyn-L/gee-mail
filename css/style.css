@@ -1,0 +1,48 @@
+body{
+	background-color: lightblue;
+}
+
+.nav a {
+color: blue;
+}
+
+.test{}
+
+.dividing {
+	height: 5px;
+	width: 100%;
+}
+
+
+.size{
+	font-size: 20px;
+	text-align: left;
+	border-style: 2px solid;
+	padding: 10px 40px;
+	width: 80px;
+	background-color: lightgrey;
+}
+
+.please{
+	font-size: 60px;
+	color: red;
+	text-align: center;
+	font-family: Arial;
+}
+.name {
+	color: black;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	text-align: right;
+}  
+
+.bullet{
+	list-style-type: none
+}
+
+.image{
+	width: 25px;
+}
